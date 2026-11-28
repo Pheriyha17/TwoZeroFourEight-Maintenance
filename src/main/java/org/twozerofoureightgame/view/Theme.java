@@ -45,35 +45,35 @@ public final class Theme{
     /** The colour of the dimmed wash behind an overlay message. */
     public static final Color OVERLAY_COLOR=new Color(0x0F172A);
 
-    /** The corner radius of every rounded rectangle, in pixels. */
-    public static final int ARC_RADIUS=6;
+        /** The corner radius of every rounded rectangle, in pixels. */
+    public static final int ARC_RADIUS=12;
 
     /** Anti aliased shapes, text, and strokes, reused on every repaint. */
     public static final RenderingHints ANTIALIASED_RENDERING_HINTS=buildRenderingHints();
 
     /** The font of the heading drawn inside the header. */
-    public static final Font TITLE_FONT=new Font("SansSerif",Font.BOLD,26);
+    public static final Font TITLE_FONT=new Font("SansSerif",Font.BOLD,30);
 
     /** The font of the small captions above the header numbers. */
-    public static final Font CAPTION_FONT=new Font("SansSerif",Font.BOLD,13);
+    public static final Font CAPTION_FONT=new Font("SansSerif",Font.BOLD,14);
 
     /** The font of the header numbers and the status text. */
-    public static final Font VALUE_FONT=new Font("SansSerif",Font.BOLD,19);
+    public static final Font VALUE_FONT=new Font("SansSerif",Font.BOLD,22);
 
     /** The font of a tile showing one digit, such as the tile worth 8. */
-    public static final Font TILE_FONT_ONE_DIGIT=new Font("SansSerif",Font.BOLD,38);
+    public static final Font TILE_FONT_ONE_DIGIT=new Font("SansSerif",Font.BOLD,42);
 
     /** The font of a tile showing two digits. */
-    public static final Font TILE_FONT_TWO_DIGITS=new Font("SansSerif",Font.BOLD,32);
+    public static final Font TILE_FONT_TWO_DIGITS=new Font("SansSerif",Font.BOLD,36);
 
     /** The font of a tile showing three digits. */
-    public static final Font TILE_FONT_THREE_DIGITS=new Font("SansSerif",Font.BOLD,26);
+    public static final Font TILE_FONT_THREE_DIGITS=new Font("SansSerif",Font.BOLD,30);
 
     /** The font of a tile showing four or more digits. */
-    public static final Font TILE_FONT_FOUR_DIGITS=new Font("SansSerif",Font.BOLD,20);
+    public static final Font TILE_FONT_FOUR_DIGITS=new Font("SansSerif",Font.BOLD,24);
 
     /** The font of the button captions. */
-    public static final Font BUTTON_FONT=new Font("SansSerif",Font.BOLD,13);
+    public static final Font BUTTON_FONT=new Font("SansSerif",Font.BOLD,14);
 
     /** The font of the large overlay message. */
     public static final Font OVERLAY_FONT=new Font("SansSerif",Font.BOLD,40);
