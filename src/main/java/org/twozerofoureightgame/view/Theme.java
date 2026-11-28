@@ -78,30 +78,28 @@ public final class Theme{
     /** The font of the large overlay message. */
     public static final Font OVERLAY_FONT=new Font("SansSerif",Font.BOLD,40);
 
-    /** The largest exponent whose tile is pale enough for dark text. */
-    public static final int DARK_TEXT_LIMIT_EXPONENT=2;
 
     private static final Color[] TILE_PALETTE=new Color[16];
     private static final String[] TILE_TEXTS=new String[16];
     private static final AlphaComposite[] ALPHA_COMPOSITES=new AlphaComposite[101];
 
-    private static final int[][] TILE_COLOUR_SOURCE={
-        {0xEE,0xE4,0xDA},
-        {0xED,0xE0,0xC8},
-        {0xF2,0xB1,0x79},
-        {0xF5,0x95,0x63},
-        {0xF6,0x7C,0x5F},
-        {0xF6,0x5E,0x3B},
-        {0xED,0xCF,0x72},
-        {0xED,0xCC,0x61},
-        {0xED,0xC8,0x50},
-        {0xED,0xC5,0x3F},
-        {0xED,0xC2,0x2E},
-        {0x3C,0x3A,0x32},
-        {0x33,0x31,0x2B},
-        {0x2B,0x29,0x24},
-        {0x24,0x22,0x1E},
-        {0x1E,0x1C,0x19}
+       private static final int[][] TILE_COLOUR_SOURCE={
+        {0xE0,0xF2,0xFE}, // 2
+        {0xBA,0xE6,0xFD}, // 4
+        {0x7D,0xD3,0xFC}, // 8
+        {0x38,0xBD,0xF8}, // 16
+        {0x02,0x84,0xC7}, // 32
+        {0x03,0x69,0xA1}, // 64
+        {0x1D,0x4E,0xD8}, // 128
+        {0x43,0x38,0xCA}, // 256
+        {0x6D,0x28,0xD9}, // 512
+        {0x7E,0x22,0xCE}, // 1024
+        {0xFB,0xBF,0x24}, // 2048
+        {0x0F,0x17,0x2A}, // 4096
+        {0x1E,0x29,0x3B}, // 8192
+        {0x31,0x2E,0x81}, // 16384
+        {0x4C,0x1D,0x95}, // 32768
+        {0x02,0x06,0x17}  // Reserved
     };
 
     static{
@@ -160,14 +158,20 @@ public final class Theme{
     }
 
     /**
-     * Returns the readable text colour for a tile.
+     * Returns a readable text colour based on the tile background.
+     * Light blue and gold tiles use dark text,
+     * while darker blue and purple tiles use light text.
      * @param exponent the tile exponent
-     * @return dark text on the two palest tiles and light text on the rest
+     * @return the contrasting text colour
      */
     public static Color tileTextColor(byte exponent){
-        return (exponent&0xF)<=DARK_TEXT_LIMIT_EXPONENT
-            ? DARK_TEXT_COLOR
-            : LIGHT_TEXT_COLOR;
+        int value=exponent&0xF;
+
+        if(value<=5 || value==11){
+            return Theme.HEADING_COLOR;
+        }
+
+        return LIGHT_TEXT_COLOR;
     }
 
     /**
